@@ -4,13 +4,14 @@
 
 
 from socket import *
+from datetime import datetime #could be needed
 serverName = '127.0.0.1'
-serverport = 8300
+serverPort = 8300
 clientSocket= socket(AF_INET, SOCK_DGRAM)
 
-message = imput ('Input lowercase sentence: ')
-clientSocket.sentto(message.encode(),(serverName,serverPort))
+message = input ('Input lowercase sentence: ')
+clientSocket.sendto(message.encode(),(serverName,serverPort))
 
-modifiedMessage, serverAddress = clientSocet.recvfrom(2048)
+modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
 print(modifiedMessage.decode())
 clientSocket.close
