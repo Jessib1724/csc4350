@@ -20,3 +20,20 @@ if True:
     print("OK")
 else:
     print("INVALID TRY AGAIN")
+
+#set port
+if port != 8000:
+    serverPort=port
+else:
+    serverPort=8000
+    
+#IP method handling
+if requestMethod == 'IP':
+    logRequest(requestMethod,okCode)
+    returnMessage = okCode+'_' + clientAddress[IPindex]
+
+#PORT method handling
+elif requestMethod == 'PORT':
+    logRequest(requestMethod,okCode)
+    returnMessage = okCode+'_'+ str(clientAddress[portIndex])
+    return returnMessage
